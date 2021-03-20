@@ -1,0 +1,15 @@
+FROM node:lts-alpine
+
+EXPOSE 3000
+
+USER node
+
+RUN mkdir -p /home/node/app
+
+WORKDIR /home/node/app
+
+COPY ./hello-dock .
+
+RUN npm install
+
+CMD ["npm", "run", "dev"]
